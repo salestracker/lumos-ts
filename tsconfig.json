@@ -5,6 +5,8 @@
     "outDir": "dist",
     "rootDir": "src",
     "declaration": true,
+    "declarationMap": true,    // 👉 Adds source maps for declarations (great for debugging)
+    "sourceMap": true,         // 👉 Adds source maps for JavaScript files
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
