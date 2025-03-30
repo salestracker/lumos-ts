@@ -7,3 +7,4 @@ exports.healthRouter = (0, trpc_1.router)({
         return { status: 'ok' };
     }),
 });
+//# sourceMappingURL=health.js.map
