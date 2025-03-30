@@ -21,4 +21,3 @@ export declare const healthRouter: import("@trpc/server").CreateRouterInner<impo
         status: string;
     }>;
 }>;
-//# sourceMappingURL=health.d.ts.map

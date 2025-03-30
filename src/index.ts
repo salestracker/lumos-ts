@@ -1,9 +1,26 @@
+/**
+ * Browser-compatibility polyfill
+ * Acts as an infrastructure adapter for browser environments
+ */
+if (typeof window !== 'undefined') {
+  // Only run in browser context
+  window.process = window.process || {
+    env: {
+      NODE_ENV: 'production',
+      DEBUG_MIME: false // Prevents the error in mime library
+    },
+    platform: 'browser'
+  };
+}
+
+// Original imports
 import express from 'express';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { router } from './core/trpc';
 import { healthRouter } from './modules/health';
 import { aiRouter } from './modules/ai';
 
+// Rest of your original code remains unchanged
 export const appRouter = router({
   health: healthRouter,
   ai: aiRouter,

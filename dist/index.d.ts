@@ -56,4 +56,7 @@ export declare const appRouter: import("@trpc/server").CreateRouterInner<import(
     }>;
 }>;
 export type AppRouter = typeof appRouter;
+<<<<<<< HEAD
+=======
 //# sourceMappingURL=index.d.ts.map
+>>>>>>> origin/main

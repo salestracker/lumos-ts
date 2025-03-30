@@ -4,4 +4,3 @@ export declare class BaseRepository {
     constructor(db: Database);
     execute(query: string, params?: any[]): Promise<any>;
 }
-//# sourceMappingURL=baseRepository.d.ts.map
