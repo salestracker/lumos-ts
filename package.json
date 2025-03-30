@@ -6,7 +6,7 @@
     "url": "git+https://github.com/salestracker/lumos-ts.git.git"
   },
   "main": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
