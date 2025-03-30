@@ -1,12 +1,17 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import react from '@vitejs/plugin-react'
 
+// Simple Vite config with Node.js polyfills for browser environment
 export default defineConfig({
-  define: {
-    'process.env': {}  // Polyfill process.env as an empty object
-  },
-  resolve: {
-    alias: {
-      process: 'process/browser'  // Redirect process to a browser-compatible version
-    }
-  }
-});
+  plugins: [
+    react(),
+    // This plugin adds Node.js polyfills required by lumos-ts
+    nodePolyfills({
+      // Add process global
+      globals: {
+        process: true
+      }
+    })
+  ]
+})
