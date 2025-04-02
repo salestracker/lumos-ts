@@ -25,3 +25,4 @@ export declare const aiRouter: import("@trpc/server").CreateRouterInner<import("
         response: string;
     }>;
 }>;
+//# sourceMappingURL=ai.d.ts.map

@@ -19,3 +19,4 @@ exports.aiRouter = (0, trpc_1.router)({
         return { response };
     })
 });
+//# sourceMappingURL=ai.js.map

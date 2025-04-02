@@ -18,3 +18,4 @@ export declare const procedure: import("@trpc/server").ProcedureBuilder<{
     _output_out: typeof import("@trpc/server").unsetMarker;
     _meta: object;
 }>;
+//# sourceMappingURL=trpc.d.ts.map

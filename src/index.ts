@@ -1,46 +1,16 @@
-/**
- * Browser-compatibility polyfill
- * Acts as an infrastructure adapter for browser environments
+/*
+ * Main entry point for lumos-ts.
+ * Re-exports core features and applies essential fixes.
  */
-if (typeof window !== 'undefined') {
-  // Only run in browser context
-  window.process = window.process || {
-    env: {
-      NODE_ENV: 'production',
-      DEBUG_MIME: false // Prevents the error in mime library
-    },
-    platform: 'browser'
-  };
+
+// Polyfill for process in browser environments
+if (typeof process === 'undefined') {
+  (window as any).process = { env: {} };
 }
 
-// Original imports
-import express from 'express';
-import * as trpcExpress from '@trpc/server/adapters/express';
-import { router } from './core/trpc';
-import { healthRouter } from './modules/health';
-import { aiRouter } from './modules/ai';
+// Fix for MIME module handling: import and re-export the mime-types package
+import mime from 'mime-types';
+export { mime };
 
-// Rest of your original code remains unchanged
-export const appRouter = router({
-  health: healthRouter,
-  ai: aiRouter,
-  // Future module registrations can go here, e.g., inventory, etc.
-});
-
-export type AppRouter = typeof appRouter;
-
-if (require.main === module) {
-  const app = express();
-
-  app.use(
-    '/trpc',
-    trpcExpress.createExpressMiddleware({
-      router: appRouter,
-    })
-  );
-
-  const port = process.env.PORT || 3000;
-  app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  });
-}
+// Re-export core members from the internal trpc module
+export { router, procedure } from './core/trpc';
