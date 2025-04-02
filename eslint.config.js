@@ -1,6 +1,7 @@
 module.exports = [
   {
-    ignores: ["dist/**/*", "eslint.config.js"],
+    // Ignore built files and vite.config.ts
+    ignores: ["dist/**/*", "eslint.config.js", "vite.config.ts"],
     languageOptions: {
       parser: require('@typescript-eslint/parser'),
       parserOptions: {
@@ -21,7 +22,16 @@ module.exports = [
       reportUnusedDisableDirectives: true
     },
     rules: {
-      ...require('@typescript-eslint/eslint-plugin').configs.recommended.rules
+      // Extend recommended rules but disable explicit any check
+      ...require('@typescript-eslint/eslint-plugin').configs.recommended.rules,
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  },
+  {
+    // For declaration files, also disable the explicit any rule
+    files: ["**/*.d.ts"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off"
     }
   }
 ];

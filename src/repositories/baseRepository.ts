@@ -1,4 +1,4 @@
-import initSqlJs, { Database } from 'sql.js';
+import { Database } from 'sql.js';
 
 export class BaseRepository {
   db: Database;

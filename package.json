@@ -14,7 +14,7 @@
     "build": "node ./node_modules/.bin/tsc",
     "start": "node dist/index.js",
     "prepublishOnly": "npm run build",
-    "lint": "eslint --ext .ts,.tsx .",
+    "lint": "eslint --ext .ts,.tsx --ignore-pattern dist .",
     "test": "echo \"No tests specified\"",
     "prepare": "npm run build"
   },
