@@ -1,16 +1,12 @@
-/*
- * Main entry point for lumos-ts.
- * Re-exports core features and applies essential fixes.
- */
-
-// Polyfill for process in browser environments
+// Polyfill for process in browser environments (if needed)
 if (typeof process === 'undefined') {
   (window as any).process = { env: {} };
 }
 
-// Fix for MIME module handling: import and re-export the mime-types package
+// Re-export core members from the correct location.
+// This ensures that consumers can correctly import router, procedure, and middleware.
+export { router, procedure, createMiddleware as middleware } from './core/trpc';
+
+// Import and re-export the MIME API so the consumers have a consistent MIME interface.
 import mime from 'mime-types';
 export { mime };
-
-// Re-export core members from the internal trpc module
-export { router, procedure } from './core/trpc';

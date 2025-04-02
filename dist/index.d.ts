@@ -1,4 +1,4 @@
+export { router, procedure, createMiddleware as middleware } from './core/trpc';
 import mime from 'mime-types';
 export { mime };
-export { router, procedure } from './core/trpc';
 //# sourceMappingURL=index.d.ts.map
