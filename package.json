@@ -10,6 +10,11 @@
   "files": [
     "dist"
   ],
+  "browser": {
+    "./dist/index.js": "./dist/index.browser.js",
+    "express": false,
+    "send": false
+  },
   "scripts": {
     "build": "node ./node_modules/.bin/tsc",
     "start": "node dist/index.js",
